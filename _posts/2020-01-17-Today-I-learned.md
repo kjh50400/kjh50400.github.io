@@ -1,6 +1,6 @@
 ---
-layout: Test menu
-title: Today I learned
+layout: post
+title: Style Guide
 ---
 
 hello github page and jekyll
