@@ -1,7 +1,7 @@
 ---
 layout: post
 title: test article
-categories: Programming
+category: Programming
 ---
 
 ```python
