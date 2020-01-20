@@ -14,7 +14,7 @@ subtitle: "One post per a day"
 email: kjh50400@gmail.com
 name: J.Kim
 description: >
-  A simple yet classy theme for your Jekyll website or blog.
+  I wish i could post everyday.
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
@@ -60,6 +60,9 @@ descriptions:
   - cat: dummy
     desc: "Just some placeholder posts, lorem ipsum and the rest."
 
+  - cat: TIL
+    desc: "Better than yesterday"
+
 # Social icons and sharing options
 #
 # Social settings are used in two places:
@@ -81,14 +84,14 @@ social:
     username: ""
     url: ""
     desc: Follow me on Twitter
-    share: true
+    share: false
 
   - name: Facebook
     icon: facebook
     username: ""
     url: ""
     desc: Friend me on Facebook
-    share: true
+    share: false
 
   - name: GitHub
     icon: github
@@ -102,14 +105,14 @@ social:
     username: ""
     url: ""
     desc: Connect with me on LinkedIn
-    share: true
+    share: false
 
   - name: Google+
     icon: google-plus
     username: ""
     url: ""
     desc: Add me to your Circles
-    share: true
+    share: false
 
   - name: YouTube
     icon: youtube
@@ -130,7 +133,7 @@ social:
     username: ""
     url: ""
     desc: Follow me on Pinterest
-    share: true
+    share: false
 
   - name: SoundCloud
     icon: soundcloud
@@ -179,7 +182,7 @@ social:
     username: ""
     url: ""
     desc: Share to Reddit
-    share: true
+    share: false
 
   - name: "Hacker News"
     icon: hacker-news
