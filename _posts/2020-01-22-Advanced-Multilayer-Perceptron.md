@@ -113,11 +113,49 @@ one-hot encoding의 한계에는 요소의 개수가 많아져 집합이 커질�
 
 
 ---
-## Weight initialization
+## Weight initialization (가중치 초기화)
 
 > [reniew's blog][https://reniew.github.io/13/]
 >
 > [곰가드의 라이브러리][https://gomguard.tistory.com/184?category=712467]: 해당 글 말고 이전 글들부터 읽어보면 도움이 많이 된다.
 
+기본적으로 초기값의 위치에 따라 학습 속도 혹은 정확한 학습이 가능하다. saddle point와 같은 local minimum에 갇히지 않는다.
 
+perceptron은 선형 함수의 결과값(y, y=wx+b)를 activation function (활성화 함수)의 입력값으로 전달하게 되는데, 기본적인 sigmoid 함수의 경우 입력값이 [-5, 5] 범위 내에 있어야 출력값의 유의미한 변화가 있다. 만약 sigmoid의 입력값이 -5 이하이거나 5 이상이면 0 아니면 1의 값만 출력하게 된다. 따라서 wx+b(=y) 값을 [-5,5] 범위~~(아마 99%던지 뭔 기준이 있겠지)~~ 내에 들어올 수 있도록 w 값을 매우 작은 값으로 초기화 해주는 기법이 Weight initialization이다. 앞서 설명한 이유 외에도 w 값의 업데이트는 w의 미분값(w의 변화량)을 인자(변수)로 가지고 있는데 sigmoid 함수의 경우 [,-5], [5,]의 범위에서 변화량이 0에 수렴하기 때문에 w 값의 업데이트가 의미가 없어지게 된다.
+
+Activation func. 의 입력값인 wx+b의 범위를 제한하기 위한 목적이므로, 코드를 작성할 때도 아래와 같이 Activation func.을 수행하기 전에 weight initialization을 수행한다.
+
+
+
+```python
+def mlp_model():
+    model = Sequential()
+    
+    model.add(Dense(50, input_shape = (784, ), kernel_initializer='he_normal'))
+    # `he_normal`이라는 초기화 방법 사용
+    model.add(Activation('sigmoid'))    
+    
+    model.add(Dense(50, kernel_initializer='he_normal'))
+    model.add(Activation('sigmoid'))    
+    
+    model.add(Dense(50, kernel_initializer='he_normal'))
+    model.add(Activation('sigmoid'))    
+    
+    model.add(Dense(50, kernel_initializer='he_normal'))
+    model.add(Activation('sigmoid'))    
+    
+    model.add(Dense(10, kernel_initializer='he_normal'))
+    model.add(Activation('softmax'))
+    
+    sgd = optimizers.SGD(lr = 0.001)
+    model.compile(optimizer = sgd, loss = 'categorical_crossentropy', metrics = ['accuracy'])
+    
+    return model
+```
+
+
+
+Activation func.의 대표격인 sigmoid 함수는 Xavier로, Relu 함수는 HE 방식으로 초기화 한다. 각 방식 모두 uniform distribution과 normal distribution 두 가지 방식을 가지고 있다.
+
+wx+b의 값을 [-5,5]범위 내에 들어오게 하는 방법 중에 weight initialization이 w 값을 조절한다면, x 값의 범위를 제한하는 방식이 batch normalization이다.
 
