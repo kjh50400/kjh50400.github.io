@@ -41,7 +41,7 @@ plt.show()
 ```
 
 
-![png](C:/Users/Owner/Desktop/Programming/kjh50400.github.io/assets/2020-01-26-output_4_0.png)
+![png](/assets/2020-01-26-output_4_0.png)
 
 
 이것으로 2020-01-26 TIL을 마치겠습니다
