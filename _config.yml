@@ -9,12 +9,12 @@ exclude:
   - "/vendor/"
 
 # Site settings
-title: Today I Learned
-subtitle: "One post per a day"
+title: Hello World!
+subtitle: "Programming for Fun! \n Moved to Notion Page"
 email: kjh50400@gmail.com
 name: J.Kim
 description: >
-  I wish I could post everyday.
+  이거 취미 맞나?
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
@@ -60,7 +60,7 @@ descriptions:
   - cat: dummy
     desc: "Just some placeholder posts, lorem ipsum and the rest."
 
-  - cat: TIL
+  - cat: Today I learned
     desc: "Better than yesterday"
 
 # Social icons and sharing options
@@ -98,6 +98,13 @@ social:
     username: kjh50400
     url: https://github.com/kjh50400
     desc: Fork me on GitHub
+    share: false
+
+  - name: Notion
+    icon: notion
+    username: kjh50400
+    url: https://www.notion.so/Programming-for-Fun-d714116e9e0a4a23a7043d5108504b9c
+    desc: I'm here!
     share: false
 
   - name: LinkedIn
